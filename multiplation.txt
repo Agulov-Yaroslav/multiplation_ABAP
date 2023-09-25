@@ -1,0 +1,29 @@
+*&---------------------------------------------------------------------*
+*& Report ZMULTIPLATION
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT zmultiplation.
+
+
+DATA: lv_number  TYPE i,
+      lv_counter TYPE i,
+      lv_result  TYPE i.
+
+PARAMETERS p_number TYPE i.
+
+lv_number = p_number.
+
+IF lv_number > 0.
+  lv_counter = 1.
+  DO.
+    lv_result = lv_counter * lv_number.
+    WRITE: / lv_counter, ' * ', lv_number, ' = ', lv_result.
+    lv_counter = lv_counter + 1.
+    IF lv_counter > 10.
+      EXIT.
+    ENDIF.
+  ENDDO.
+ELSE.
+  WRITE 'Please enter a positive number. '.
+ENDIF.
